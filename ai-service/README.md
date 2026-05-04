@@ -277,7 +277,7 @@ Returns service health status.
   "service": "pci-dss-ai-service",
   "version": "1.0.0",
   "uptime_seconds": 120,
-  "chroma_doc_count": 11,
+  "chroma_doc_count": 62,
   "model": "llama-3.3-70b-versatile"
 }
 ```
@@ -314,7 +314,7 @@ Expected: **10 passed**
 
 ## RAG Pipeline
 - Knowledge base: `docs/pci_dss_knowledge.txt`
-- 11 chunks stored in ChromaDB
+- 62 chunks stored in ChromaDB from 10 documents
 - Embedding model: ChromaDB DefaultEmbeddingFunction
 - Query returns top 3 relevant chunks
 
