@@ -6,6 +6,31 @@ intelligent PCI-DSS compliance analysis. Includes RAG pipeline using
 ChromaDB and a vector embedding model for context-aware responses.
 
 ---
+## Architecture
+
+┌─────────────────────────────────────┐
+│         React Frontend              │
+│            (port 80)                │
+└──────────────┬──────────────────────┘
+               │
+┌──────────────▼──────────────────────┐
+│         Java Backend                │
+│           (port 8080)               │
+└──────────────┬──────────────────────┘
+               │
+┌──────────────▼──────────────────────┐
+│      Flask AI Service               │
+│           (port 5000)               │
+│                                     │
+│  /describe    /recommend            │
+│  /categorise  /generate-report      │
+│  /analyse-document  /batch-process  │
+└──────────┬──────────────────────────┘
+           │              │
+┌──────────▼───┐  ┌───────▼──────────┐
+│  Groq API    │  │    ChromaDB      │
+│ LLaMA-3.3-70b│  │   62 chunks      │
+└──────────────┘  └──────────────────┘
 
 ## Tech Stack
 | Technology | Purpose |
